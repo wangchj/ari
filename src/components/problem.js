@@ -1,5 +1,7 @@
 import React from 'react';
 import Prob from '../problem';
+import redX from '../images/red_x.png';
+import greenCheck from '../images/green_check.png';
 
 /**
  * Gets the length of the longest element in vals.
@@ -57,8 +59,8 @@ function Ver(props) {
     <div style={{position: 'relative'}}>
       {
         problem.done ? (Prob.isCorrect(problem) ?
-          <img src="green_check.png" style={imageStyle}/> :
-          <img src="red_x.png" style={imageStyle}/>
+          <img src={greenCheck} style={imageStyle}/> :
+          <img src={redX} style={imageStyle}/>
         ) : null
       }
       <div style={s1}>
@@ -86,8 +88,8 @@ function Hor(props) {
     <div style={{position: 'relative'}}>
       {
         problem.done ? (Prob.isCorrect(problem) ?
-          <img src="green_check.png" style={imageStyle}/> :
-          <img src="red_x.png" style={imageStyle}/>
+          <img src={greenCheck} style={imageStyle}/> :
+          <img src={redX} style={imageStyle}/>
         ) : null
       }
       <div style={s1}>
