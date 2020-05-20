@@ -18,15 +18,13 @@ const App = props => {
 
   return (
     <Provider store={store}>
-      <div style={boxStyle}>
-        <Router />
-      </div>
+      <Router />
     </Provider>
   )
 }
 
-document.addEventListener('keydown', event =>
-  store.dispatch({type: 'KEYDOWN', event: event})
-);
+// document.addEventListener('keydown', event =>
+//   store.dispatch({type: 'KEYDOWN', event: event})
+// );
 
 export default App;

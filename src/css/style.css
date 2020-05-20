@@ -1,0 +1,20 @@
+@font-face {
+  font-family: BalsamiqSans;
+  src: url(../fonts/BalsamiqSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: BalsamiqSans;
+  src: url(../fonts/BalsamiqSans-Bold.ttf);
+  font-weight: bold;
+}
+
+input.abc {
+  outline: none;
+  border: 0;
+  caret-color: transparent;
+}
+input.abc:focus {
+  outline: none;
+  border: 0;
+}

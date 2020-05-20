@@ -104,7 +104,18 @@ function runReducer(state, action) {
   return state.run;
 }
 
-function reducer(state = {}, action) {
+let s = {
+  op: '+',
+  options: {
+    level: 'EASY',
+    format: 'VERTICAL'
+  },
+  run: {
+    problem: {op: '+', vals: [111, 333]}
+  }
+};
+
+function reducer(state = s, action) {
   switch (action.type) {
     case 'KEYDOWN':
       if (state.run)

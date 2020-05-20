@@ -57,7 +57,7 @@ let Options = props => {
             <HeaderRx/>
             {options}
             <button type="button" className="btn btn-primary"
-              style={{marginTop: '1.5rem', width: '100%'}}
+              style={{marginTop: '1.5rem'}}
               onClick={props.onStartClick}
             >Start</button>
           </div>
