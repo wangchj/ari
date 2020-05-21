@@ -1,4 +1,6 @@
 import React from 'react';
+import Prob from '../problem';
+import Result from './result';
 
 /**
  * Gets the length of the longest element in vals.
@@ -7,86 +9,101 @@ import React from 'react';
  * @return {integer} The max length.
  */
 function getMaxLength(vals) {
-  let res;
-  vals.forEach(val => {
-    let s = '' + val;
-    res = res === undefined ? s.length : Math.max(res, s.length);
-  });
-  return res;
+  return vals.reduce((a, v) => Math.max(a, ('' + v).length), 0);
 }
 
-/**
- * Prepend spaces to each values so that they line up when displayed.
- *
- * @param {array} vals The array of values to be formatted.
- * @param {string} op The operation string.
- * @return {array} A new array of strings that are the formatted value.
- */
-function format(vals, op) {
-  let max = getMaxLength(vals);
-  let res = [];
+class Ver extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  op  = op === '/' ? '÷' : op;
+  componentDidMount() {
+    document.getElementById('problemInput').focus();
+  }
 
-  vals.forEach((val, i) => {
-    let len = ('' + val).length;
-    let d   = max - len;
-    let r   = ((i === vals.length - 1) ? op + (' '.repeat(d + 1)) + val :
-                                              (' '.repeat(d + 2)) + val);
-    res.push(r);
-  });
+  onInputBlur() {
+    document.getElementById('problemInput').focus();
+  }
 
-  return res;
-}
+  render() {
+    let props = this.props;
+    let problem = props.problem;
+    let vals = problem.vals;
+    let length = getMaxLength(vals);
 
-function getTableWidth(vals) {
-  return vals.reduce((a, v, i) =>
-    Math.max(a, ('' + v).length + (i === vals.length - 1 ? 2 : 0)), 0);
-}
+    let stripe = {
+      display: 'flex',
+      flexDirection: 'row',         // Row should be the default
+      justifyContent: 'center',     // Horizontal aligment
+      alignItems: 'center',         // Vertical alignment
+    };
 
-function getTableMatrix(vals) {
-  let w = getTableWidth(vals);
-  let h = vals.length;
-}
+    let stripe1 = {...stripe, backgroundColor: '#D6EAF8'};
 
-function Table(props) {
-  let prob = props.problem;
-  let vals = prob.vals;
-  let w = getTableWidth(vals);
-  let h = vals.length;
-  let rows = vals.map(val => )
-}
+    let stripe2 = {...stripe, backgroundColor: '#D0ECE7'};
 
-function Ver(props) {
-  let problem = props.problem;
-  let vals = problem.vals;
-  let lines = format(vals, problem.op);
+    let stripe3 = {...stripe, backgroundColor: '#FCF3CF'};
 
-  let s1 = {textAlign: 'right'};
-  let probStyle = {fontSize: '8em', lineHeight: '1em', 
-    marginBottom: '0.5rem', 'fontFamily': 'BalsamiqSans',
-  };
-  let lineStyle = {width: '100%', height: '1pt', backgroundColor: '#444',
-    marginBottom: '0.5rem'
-  };
-  let inputStyle = {fontSize:'8em', lineHeight: '1em', height: '1em',
-    'fontFamily': 'BalsamiqSans',
-  };
-  let imageStyle = {position: 'absolute', width: '100%', opacity: '70%'};
+    let stripe4 = {...stripe, marginTop: '20px'};
 
-  return (
-    <div className="card">
-      <div className="card-header">Add the following numbers
+    let numberWidth = (length === 1 ? 2 : length) + 'em';
+
+    let number = {
+      fontFamily: 'BalsamiqSans',
+      fontSize:'10em',
+      paddingTop: '0.06em',
+      paddingBottom: '0.06em',
+      width: numberWidth,
+      textAlign: 'right',
+    };
+
+    let operator = {
+      marginRight: 30,
+    };
+
+    let line = {
+      height: '0.1em',
+      backgroundColor: '#566573',
+    };
+
+    let input = {
+      fontFamily: 'BalsamiqSans',
+      fontSize: '10em',
+      padding: 0,
+      margin: 0,
+      width: numberWidth,
+      textAlign: 'right',
+      backgroundColor: 'transparent',
+      border: '1px dashed rgba(0, 0, 0, 0.5)',
+      borderRadius: '5px',
+    };
+
+    return (
+      <div style={{display: 'flex', flexDirection: 'column'}}>
+        <div style={stripe1}>
+          <span style={number}>{vals[0]}</span>
+        </div>
+        <div style={stripe2}>
+          <span style={number}>
+            <span style={operator}>{problem.op}</span>
+            {vals[1]}
+          </span>
+        </div>
+        <div style={stripe3}>
+          <input id="problemInput" className="abc" style={input}
+            autoComplete="off"
+            value={problem.input || ''}
+            onChange={()=>{}}
+            onKeyDown={this.props.onKeyDown}
+            onBlur={() => this.onInputBlur()}/>
+        </div>
+        {
+          problem.done ?
+            <div style={stripe4}><Result problem={problem}/></div>: null
+        }
       </div>
-      <div className="card-body" style={{display: 'flex', justifyContent: 'center'}}>
-        <table>
-          {
-            vals.map(val => )
-          }
-        </table>
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default Ver;

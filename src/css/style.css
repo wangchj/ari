@@ -9,12 +9,20 @@
   font-weight: bold;
 }
 
-input.abc {
-  outline: none;
-  border: 0;
-  caret-color: transparent;
+html, body {
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  font-family: BalsamiqSans;
 }
+
+input.abc {
+  /*border: 0;*/
+  /*outline: none;*/
+  /*caret-color: transparent;*/
+}
+
 input.abc:focus {
+  /*border: 0;*/
   outline: none;
-  border: 0;
 }

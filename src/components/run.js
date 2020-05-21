@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Problem from './problem';
 import Summary from './summary';
-import Nav from './nav';
+import RunInfo from './run-info';
 
 function Content(props) {
   let run = props.run;
@@ -22,10 +22,8 @@ function Content(props) {
 function Run(props) {
   return (
     <div id="run">
-      <Nav/>
-      <div className="container">
-        <Content {...props}/>
-      </div>
+      {props.run.problem ? <RunInfo/> : null}
+      <Content {...props}/>
     </div>
   )
 }
