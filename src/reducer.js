@@ -115,7 +115,7 @@ function runReducer(state, action) {
 //   }
 // };
 
-function reducer(state, action) {
+function reducer(state = defaultState['+'], action) {
   switch (action.type) {
     case 'KEYDOWN':
       if (state.run)
@@ -126,11 +126,6 @@ function reducer(state, action) {
       return defaultState[action.op];
     case 'OPTION_SELECT':
       return {...state, options: optionsReducer(state.options, action)};
-    case 'BACK_TO_MENU':
-      var res = {...state};
-      delete res.op;
-      delete res.options;
-      return res;
     case 'START':
       return {...state, run: runReducer(state, action)};
     case 'RUN_EXIT':
