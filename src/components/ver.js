@@ -90,7 +90,10 @@ class Ver extends React.Component {
           </span>
         </div>
         <div style={stripe3}>
-          <input id="problemInput" className="abc" style={input}
+          <input id="problemInput"
+            type="number"
+            className="abc"
+            style={input}
             autoComplete="off"
             value={problem.input || ''}
             onChange={()=>{}}
