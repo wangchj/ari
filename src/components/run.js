@@ -33,7 +33,7 @@ let RunRx = connect(
   dispatch => ({
     onKeyDown: event => {
       event.persist();
-      dispatch({type: 'KEYDOWN', event: event})
+      dispatch({type: 'KEYDOWN', event: event, dispatch: dispatch})
     }
   })
 )(Run);
