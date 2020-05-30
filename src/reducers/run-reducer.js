@@ -1,5 +1,5 @@
 import problemReducer from './problem-reducer';
-import Problem from 'problem';
+import Problem from 'business/problem';
 
 // The amount of time (in ms) to wait before moving to the next problem.
 let delay = 300;

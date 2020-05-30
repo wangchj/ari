@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Problem from './problem';
-import Summary from './summary';
+import Summary from 'screens/summary/screen';
 import RunInfo from './run-info';
 
 function Content(props) {

@@ -1,8 +1,8 @@
 import React from 'react';
 
 let borderRadius = '0.3em';
-let padH = '1.5em';
-let padV = '1em';
+let padH = '1em';
+let padV = '0.8em';
 let padHS = '1em';
 let padVS = '0.8em';
 let cursor = 'pointer';

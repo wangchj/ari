@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Prob from '../problem';
+import Prob from 'business/problem';
 
 function Summary(props) {
   let probs = props.run.problems;

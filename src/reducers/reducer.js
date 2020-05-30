@@ -1,7 +1,7 @@
 import opReducer from 'reducers/op-reducer';
 import optionsReducer from 'reducers/options-reducer';
 import runReducer from 'reducers/run-reducer';
-import Problem from './problem';
+import Problem from 'business/problem';
 
 let defaultState = {
   '+': {

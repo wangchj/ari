@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Operations from 'models/operations';
-import Levels from 'models/levels';
-import Formats from 'models/formats';
-import RadioButtons from './radio-buttons';
-import Button from './button';
+import Operations from 'business/operations';
+import Levels from 'business/levels';
+import Formats from 'business/formats';
+import RadioButtons from 'widgets/radio-buttons';
+import Button from 'widgets/button';
 
 let MenuOption = props => {
   let box = {margin: '0.5rem'};

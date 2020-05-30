@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import reducer from './reducer';
-import App from './components/app';
+import reducer from 'reducers/reducer';
+import App from './app';
 
 // Create the redux store
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ &&

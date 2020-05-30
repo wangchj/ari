@@ -1,7 +1,7 @@
 import React from 'react';
-import Prob from '../problem';
-import redX from '../images/red_x.png';
-import greenCheck from '../images/green_check.png';
+import Prob from 'business/problem';
+import redX from 'images/red_x.png';
+import greenCheck from 'images/green_check.png';
 import Ver from './ver';
 
 function Hor(props) {

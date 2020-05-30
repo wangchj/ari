@@ -1,7 +1,7 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
-import Problem from '../problem';
+import Problem from 'business/problem';
 
 let container = {
   fontFamily: 'BalsamiqSans',

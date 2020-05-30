@@ -1,5 +1,5 @@
 import React from 'react';
-import Prob from '../problem';
+import Prob from 'business/problem';
 import Result from './result';
 
 /**
