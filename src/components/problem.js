@@ -3,8 +3,6 @@ import Prob from '../problem';
 import redX from '../images/red_x.png';
 import greenCheck from '../images/green_check.png';
 import Ver from './ver';
-import style from '../css/style.css';
-
 
 function Hor(props) {
   let problem = props.problem;
