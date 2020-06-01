@@ -1,0 +1,18 @@
+$fontSize:      1.2em;
+$bgColor:       #2C3E50;
+$textColor:     #fff;
+$borderRadius:  0.3em;
+$padH:          1.5em;
+$padV:          1em;
+$cursor:        pointer;
+$textAlign:     center;
+
+.button {
+  font-size:        $fontSize;
+  padding:          $padV $padH;
+  background-color: $bgColor;
+  color:            $textColor;
+  text-align:       $textAlign;
+  border-radius:    $borderRadius;
+  cursor:            $cursor;
+}
