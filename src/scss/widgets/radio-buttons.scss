@@ -1,0 +1,19 @@
+@use './button' as btn;
+
+.radio-btns {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  .btn {
+    &:first-child {
+      border-top-left-radius: btn.$border-radius;
+      border-bottom-left-radius: btn.$border-radius;
+    }
+
+    &:last-child {
+      border-top-right-radius: btn.$border-radius;
+      border-bottom-right-radius: btn.$border-radius;
+    }
+  }
+}

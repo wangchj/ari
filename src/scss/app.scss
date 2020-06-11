@@ -16,6 +16,12 @@ html, body {
   font-family: BalsamiqSans;
 }
 
+@media (max-width: 400px) {
+  html, body {
+    font-size: 12px;
+  }
+}
+
 input[type="number"] {
   -moz-appearance: textfield;
 }

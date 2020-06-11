@@ -1,11 +1,5 @@
 import React from 'react';
-import Toggle from './toggle-button';
-
-let container = {
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'flex-start',
-};
+import StyleSheet from 'scss/widgets/radio-buttons';
 
 function RadioButtons(props) {
   let options = props.options;
@@ -14,20 +8,15 @@ function RadioButtons(props) {
     return;
 
   return (
-    <div style={container}>{
-      options.map((option, i) =>
-        <Toggle
-          key={option.id}
-          id={option.id}
-          label={option.label}
-          activeId={props.activeId}
-          index={i}
-          length={options.length}
-          size={props.size}
-          activeStyle={props.activeStyle}
-          onClick={props.onClick}
-        />
-      )
+    <div className="radio-btns">{
+      options.map((option, i) => {
+        let color = props.activeId === option.id ? props.variant ?
+          `btn-${props.variant}` : 'btn-blue' : 'btn-inactive';
+        let size = props.size ? `btn-${props.size}` : 'btn-m';
+
+        return <div key={option.id} className={`btn ${color} ${size}`}
+          onClick={() => props.onClick(option.id)}>{option.label}</div>
+      })
     }</div>
   )
 }

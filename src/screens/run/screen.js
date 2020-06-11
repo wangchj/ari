@@ -9,7 +9,7 @@ function Content(props) {
   let options = props.options;
 
   if (run.problem) {
-    return <Problem problem={run.problem} options={options} onKeyDown={props.onKeyDown}/>
+    return <Problem problem={run.problem} options={options}/>
   }
   else if (run.problems) {
     return <Summary/>
@@ -19,23 +19,47 @@ function Content(props) {
   }
 }
 
-function Run(props) {
-  return (
-    <div id="run">
-      {props.run.problem ? <RunInfo/> : null}
-      <Content {...props}/>
-    </div>
-  )
+/**
+ * The main entry component of a run, which consists of a series of problems.
+ */
+class Screen extends React.Component {
+
+  /**
+   * Handles the event when this component mounts.
+   */
+  componentDidMount() {
+    document.addEventListener('keydown', this.props.onKeyDown);
+  }
+
+  /**
+   * Handles the event when this component unmount.
+   */
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.props.onKeyDown);
+  }
+
+  /**
+   * Renders the component.
+   */
+  render() {
+    let props = this.props;
+
+    return (
+      <div id="run">
+        {props.run.problem ? <RunInfo/> : null}
+        <Content {...props}/>
+      </div>
+    )
+  }
 }
 
-let RunRx = connect(
+let ScreenRx = connect(
   state => state,
   dispatch => ({
     onKeyDown: event => {
-      event.persist();
       dispatch({type: 'KEYDOWN', event: event, dispatch: dispatch})
     }
   })
-)(Run);
+)(Screen);
 
-export default RunRx;
+export default ScreenRx;

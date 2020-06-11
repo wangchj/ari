@@ -1,4 +1,5 @@
 node_modules/
 dist/
-
+.sass-cache/
+.vscode/
 .DS_Store

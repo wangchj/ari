@@ -7,12 +7,6 @@ import RadioButtons from 'widgets/radio-buttons';
 import Button from 'widgets/button';
 import StyleSheet from 'scss/screens/main/screen';
 
-
-let activeStyle = {
-  backgroundColor: '#2E86C1',
-  color: '#FFF',
-};
-
 let Screen = props => {
   let level  = props.options.level;
   let format = props.options.format;
@@ -22,8 +16,8 @@ let Screen = props => {
       <div id="title">Ari Math</div>
       <div id="options">
         <div id="ops">
-          <RadioButtons options={Operations} activeId={props.op}
-            onClick={props.onOpClick}/>
+          <RadioButtons options={Operations} activeId={props.op} size="menu"
+            variant="purple" onClick={props.onOpClick}/>
         </div>
         <div>
           <table cellSpacing="0">
@@ -32,7 +26,6 @@ let Screen = props => {
                 <td className="title">Level</td>
                 <td className="config">
                   <RadioButtons options={Levels} activeId={level}
-                    activeStyle={activeStyle} size="s"
                     onClick={v => props.onOptionClick('level', v)} />
                 </td>
               </tr>
@@ -40,8 +33,7 @@ let Screen = props => {
                 <td className="title">Format</td>
                 <td className="config">
                   <RadioButtons options={Formats} activeId={format}
-                  activeStyle={activeStyle} size="s"
-                  onClick={v => props.onOptionClick('format', v)} />
+                    onClick={v => props.onOptionClick('format', v)} />
                 </td>
               </tr>
             </tbody>
@@ -49,7 +41,8 @@ let Screen = props => {
         </div>
       </div>
       <div id="finalize">
-        <Button label="Start!" onClick={props.onStartClick}/>
+        <Button label="Start!" size="l" variant="dark"
+          onClick={props.onStartClick}/>
       </div>
     </div>
   )

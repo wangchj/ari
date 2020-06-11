@@ -2,18 +2,13 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
 import Problem from 'business/problem';
-
-let container = {
-  fontFamily: 'BalsamiqSans',
-  fontSize: '3em',
-};
+import StyleSheet from 'scss/screens/run/result';
+import CommonStyle from 'scss/common';
 
 export default props => {
   let isCorrect = Problem.isCorrect(props.problem);
 
-  let iconColor = {
-    color: isCorrect ? 'green' : '#C0392B'
-  };
+  let iconColor = isCorrect ? 'green' : 'red';
 
   let icon = isCorrect ? faCheckCircle : faTimesCircle;
 
@@ -22,8 +17,8 @@ export default props => {
     <span>The correct answer is <b>{Problem.eval(props.problem)}</b></span>;
 
   return (
-    <div style={container}>
-      <FontAwesomeIcon icon={icon} style={iconColor}/> {text}
+    <div className="result">
+      <FontAwesomeIcon icon={icon} className={iconColor}/> {text}
     </div>
   )
 }
