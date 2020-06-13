@@ -1,0 +1,49 @@
+@use "scss/const";
+
+.numpad {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: const.$gray-3;
+  }
+
+  @media (min-width: 450px) {
+    .rows{
+      width: 450px;
+    }
+  }
+
+  .row {
+    display: flex;
+
+    .key {
+      display: flex;
+      justify-content: center;
+      flex: 1 1 0;
+      margin: 0;
+      background-color: const.$gray-1;
+      border-width: 1px 1px 0px 0px;
+      border-style: solid;
+      border-color: const.$gray-3;
+      cursor: pointer;
+
+      &:active {
+        background-color: const.$gray-2;
+      }
+
+      .text {
+        font-size: 1.35em;
+        padding: 1em;
+      }
+    }
+  }
+}

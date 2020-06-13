@@ -14,7 +14,7 @@ export default props => {
 
   let text = isCorrect ?
     <span>Correct!</span> :
-    <span>The correct answer is <b>{Problem.eval(props.problem)}</b></span>;
+    <span>The answer is <b>{Problem.eval(props.problem)}</b></span>;
 
   return (
     <div className="result">
