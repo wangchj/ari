@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Problem from './problem';
-import Summary from 'screens/summary/screen';
+import ResultScreen from 'screens/result/screen';
 import RunInfo from './run-info';
 
 function Content(props) {
@@ -12,7 +12,7 @@ function Content(props) {
     return <Problem problem={run.problem} options={options}/>
   }
   else if (run.problems) {
-    return <Summary/>
+    return <ResultScreen/>
   }
   else {
     return <div>Something went wrong. No problem to display</div>

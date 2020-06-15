@@ -1,0 +1,45 @@
+@use 'scss/const';
+
+.report-screen {
+  .title {
+    // width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    // border: 1px dashed black;
+  }
+
+  .stats-area {
+    display: flex;
+    justify-content: center;
+    background-color: const.$blue-2;
+    padding: 2em 0 2em 0;
+
+    .stats {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+
+      .stat {
+        .name {
+          margin-bottom: 1em;
+        }
+
+        .value {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+  }
+}
