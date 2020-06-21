@@ -1,87 +1,112 @@
-class Problem {
-  static randInt(min, max) {
-    return Math.round(Math.random() * (max - min)) + min;
-  }
+import randInt from './rand-int';
 
-  static make(op, options) {
+class Problem {
+  static make(op, settings) {
     switch(op) {
       case '+':
-        return this.makeAdd(options);
+        return this.makeAdd(settings);
       case '-':
-        return this.makeSub(options);
+        return this.makeSub(settings);
       case 'x':
-        return this.makeMul(options);
+        return this.makeMul(settings);
       case '/':
-        return this.makeDiv(options);
+        return this.makeDiv(settings);
     }
   }
 
-  static makeAdd(options) {
+  static makeAdd(settings) {
 
     // TODO: show only carry problems
 
-    switch (options.level) {
-      case 'EASY':
+    let a, b;
+
+    switch (settings.level) {
+      case 1:
+        a = randInt(1, 9);
+        b = randInt(1, 9);
+        break;
+
+      case 2:
         var c = Math.round(Math.random()) === 1;
-        var a = c ? this.randInt(1, 89) : this.randInt(1, 9);
-        var b = c ? this.randInt(1, 9) :  this.randInt(1, 89);
-        return {op: '+', vals: [a, b]};
+        a = c ? randInt(10, 89) : randInt(1, 9);
+        b = c ? randInt(1, 9)   : randInt(10, 89);
+        break;
 
-      case 'MEDIUM':
-        var a = this.randInt(10, 99);
-        var b = this.randInt(10, 99);
-        return {op: '+', vals: [a, b]};
+      case 3:
+        a = randInt(10, 99);
+        b = randInt(10, 99);
+        break;
 
-      case 'HARD':
-        var a = this.randInt(100, 999);
-        var b = this.randInt(100, 999);
-        return {op: '+', vals: [a, b]};
+      case 4:
+        a = randInt(100, 999);
+        b = randInt(100, 999);
+        break;
     }
+
+    return {op: '+', vals: [a, b]};
   }
 
-  static makeSub(options) {
+  static makeSub(settings) {
+    let a, b;
 
-    // TODO: show only borrow problems
+    switch (settings.level) {
+      case 1:
+        a = randInt(1, 10);
+        b = randInt(1, a);
+        break;
 
-    switch (options.level) {
-      case 'EASY':
-        var a = this.randInt(1, 25);
-        var b = this.randInt(1, Math.min(a, 10));
-        return {op: '-', vals: [a, b]};
+      case 2:
+        a = randInt(10, 19);
+        b = randInt((a % 10) + 1, 9);
+        break;
 
-      case 'MEDIUM':
-        var a = this.randInt(11, 99);
-        var b = this.randInt(11, 99);
-        return {op: '-', vals: [a, b]};
+      case 3:
+        a = randInt(20, 99);
+        b = randInt(1, Math.floor(a / 10) - 1) * 10 + randInt(a % 10 + 1, 9);
+        break;
 
-      case 'HARD':
-        var a = this.randInt(101, 999);
-        var b = this.randInt(101, 999);
-        return {op: '-', vals: [a, b]};
+      case 4:
+        a = randInt(101, 999);
+        b = randInt(101, a);
+        break;
     }
+
+    return {op: '-', vals: [a, b]};
   }
 
-  static makeMul(options) {
-    switch (options.level) {
-      case 'EASY':
-        var a = this.randInt(2, 15);
-        var b = this.randInt(2, 15);
-        return {op: 'x', vals: [a, b]};
+  static makeMul(settings) {
+    let a, b;
 
-      case 'MEDIUM':
-        var a = this.randInt(15, 99);
-        var b = this.randInt(2, 9);
-        return {op: 'x', vals: [a, b]};
+    switch (settings.level) {
+      case 1:
+        a = randInt(2, 12);
+        b = randInt(2, 12);
+        break;
 
-      case 'HARD':
-        var a = this.randInt(15, 99);
-        var b = this.randInt(15, 99);
-        return {op: 'x', vals: [a, b]};
+      case 2:
+        var bool = Math.round(Math.random()) === 1;
+        var lg = randInt(11, 19);
+        var sm = randInt(2, 12);
+        a = bool ? lg : sm;
+        b = bool ? sm : lg;
+        break;
+
+      case 3:
+        a = randInt(11, 19);
+        b = randInt(11, 19);
+        break;
+
+      case 4:
+        a = randInt(15, 99);
+        b = randInt(15, 99);
+        break;
     }
+
+    return {op: 'x', vals: [a, b]};
   }
 
-  static makeDiv(options) {
-    let mul = this.makeMul(options);
+  static makeDiv(settings) {
+    let mul = this.makeMul(settings);
     let ans = this.eval(mul);
     var r = Math.round(Math.random()) === 1;
     return {op: '/', vals: [ans, r ? mul.vals[0] : mul.vals[1]]};

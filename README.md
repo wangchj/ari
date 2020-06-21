@@ -19,18 +19,20 @@ The app can be viewed at http://localhost:8080.
 Operations
 
   - ADD
-    - Easy:   1 digit + 2 digits
-    - Medium: 2 digits + 2 digits
-    - Hard:   3 digits + 2 digits
+    - 1: 1 digit + 1 digits
+    - 2: 1 digit + 2 digits
+    - 3: 2 digits + 2 digits
+    - 4: 3 digits + 2 digits
   - SUB
-    - Easy:   2 digits - 1 digit
-    - Medium: 2 digits - 2 digits
-    - Hard:   3 digits - 3 digits
-    - Special mode: borrow
+    - 1: 1 digits - 1 digit
+    - 2: 2 digits - 1 digits
+    - 3: 2 digits - 2 digits
+    - 4: 3 digits - 3 digits
   - MUL
-    - Easy:   1 digit * 2 digits (1 - 15)
-    - Medium: 2 digits * 2 digits
-    - Hard:   3 digits * 3 digits
+    - 1: Mostly 1 digit * 1 digits (1 - 12)
+    - 2: Mostly 1 digit * 2 digits
+    - 3: 2 digits * 2 digits (11 - 19)
+    - 4: 2 digits * 2 digits (15 - 99)
   - DIV
     - This is reverse of MUL
   - MIX

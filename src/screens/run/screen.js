@@ -6,10 +6,10 @@ import RunInfo from './run-info';
 
 function Content(props) {
   let run = props.run;
-  let options = props.options;
+  let settings = props.settings;
 
   if (run.problem) {
-    return <Problem problem={run.problem} options={options}/>
+    return <Problem problem={run.problem} settings={settings}/>
   }
   else if (run.problems) {
     return <ResultScreen/>

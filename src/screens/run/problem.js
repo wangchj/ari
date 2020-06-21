@@ -6,7 +6,7 @@ import Numpad from 'widgets/numpad';
 import ProblemStyle from 'scss/screens/run/problem';
 
 function Problem(props) {
-  let content = props.options.format === 'VERTICAL' ?
+  let content = props.settings.format === 'STACK' ?
     <Ver problem={props.problem}/> :
     <Hor problem={props.problem}/>;
   return (

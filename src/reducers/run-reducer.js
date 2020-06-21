@@ -13,10 +13,10 @@ let timeout;
  *
  * @param {object} run The run state object to advance.
  * @param {string} op The operation, e.g, +, -, x, or /
- * @param {object} options The options state object.
+ * @param {object} settings The settings state object.
  * @return {object} The next run state object.
  */
-function advance(run, op, options) {
+function advance(run, op, settings) {
   let res = {...run};
 
   if (!res.problems)
@@ -27,15 +27,15 @@ function advance(run, op, options) {
   if (res.problems.length === 20)
     delete res.problem;
   else
-    res.problem = Problem.make(op, options);
+    res.problem = Problem.make(op, settings);
 
   return res;
 }
 
-function onKeyDown(run, op, options, action) {
+function onKeyDown(run, op, settings, action) {
   if (run.problem.done) {
     clearTimeout(timeout);
-    return advance(run, op, options);
+    return advance(run, op, settings);
   }
 
   let res = {
@@ -49,20 +49,20 @@ function onKeyDown(run, op, options, action) {
   return res;
 }
 
-export default (run, op, options, action) => {
+export default (run, op, settings, action) => {
 
   switch (action.type) {
     case 'START':
-      return {problem: Problem.make(op, options)};
+      return {problem: Problem.make(op, settings)};
 
     case 'RUN_EXIT':
       return;
 
     case 'KEYDOWN':
-      return onKeyDown(run, op, options, action);
+      return onKeyDown(run, op, settings, action);
 
     case 'ADVANCE':
-      return advance(run, op, options);
+      return advance(run, op, settings);
   }
 
   return run;

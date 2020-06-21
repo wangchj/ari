@@ -1,34 +1,34 @@
 import opReducer from 'reducers/op-reducer';
-import optionsReducer from 'reducers/options-reducer';
+import settingsReducer from 'reducers/settings-reducer';
 import runReducer from 'reducers/run-reducer';
 
 let defaultState = {
   '+': {
     op: '+',
-    options: {
-      level: 'EASY',
-      format: 'VERTICAL'
+    settings: {
+      level: 1,
+      format: 'STACK'
     }
   },
   '-': {
     op: '-',
-    options: {
-      level: 'EASY',
-      format: 'VERTICAL'
+    settings: {
+      level: 1,
+      format: 'STACK'
     }
   },
   'x': {
     op: 'x',
-    options: {
-      level: 'EASY',
-      format: 'VERTICAL'
+    settings: {
+      level: 1,
+      format: 'STACK'
     }
   },
   '/': {
     op: '/',
-    options: {
-      level: 'EASY',
-      format: 'VERTICAL'
+    settings: {
+      level: 1,
+      format: 'STACK'
     }
   },
 };
@@ -36,8 +36,8 @@ let defaultState = {
 function reducer(state = defaultState['+'], action) {
   return {
     op: opReducer(state.op, action),
-    options: optionsReducer(state.options, action),
-    run: runReducer(state.run, state.op, state.options, action)
+    settings: settingsReducer(state.settings, action),
+    run: runReducer(state.run, state.op, state.settings, action)
   };
 }
 

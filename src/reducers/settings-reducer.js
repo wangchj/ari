@@ -1,14 +1,14 @@
-export default (options, action) => {
+export default (settings, action) => {
 
   switch (action.type) {
     case 'SELECT_OP':
       break;
 
     case 'OPTION_SELECT':
-      let res = {...options};
+      let res = {...settings};
       res[action.field] = action.value;
       return res;
   }
 
-  return options;
+  return settings;
 }
