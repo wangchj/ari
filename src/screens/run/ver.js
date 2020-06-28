@@ -1,15 +1,25 @@
 import React from 'react';
 import Result from './result';
+import Problem from 'business/problem'
 import StyleSheet from 'scss/screens/run/ver';
 
 /**
- * Gets the length of the longest element in vals.
+ * Gets the shared CSS width for operand and input UI elements in em.
  *
- * @param {array} vals The array from which to get the max length.
- * @return {integer} The max length.
+ * @param {object} problem The problem model object.
+ * @return The width in em
  */
-function getMaxLength(vals) {
-  return vals.reduce((a, v) => Math.max(a, ('' + v).length), 0);
+function getNumWidth(problem) {
+  // Get the max number of characters from the 2 operands. The length of the
+  // second operand is added by 1 to accommodate the operator.
+  let a = problem.vals.reduce((a, v, i, s) =>
+    Math.max(a, ('' + v).length + (i === s.length - 1 ? 1 : 0)),
+    0
+  );
+  // Get the number of characters from the answer
+  let b = ('' + Problem.eval(problem)).length;
+  let m = Math.max(a, b);
+  return 0.65 * m;
 }
 
 /**
@@ -21,9 +31,7 @@ function getMaxLength(vals) {
 function Ver(props) {
   let problem = props.problem;
   let vals = problem.vals;
-  let length = getMaxLength(vals);
-
-  let numberWidthStyle = {width: (length === 1 ? 2 : length) + 'em'};
+  let numberWidthStyle = {width: getNumWidth(problem) + 'em'};
 
   return (
     <div className="ver">
