@@ -1,19 +1,21 @@
 @use 'scss/const';
 
 .report-screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   .title {
-    // width: 100%;
     display: flex;
     justify-content: center;
     font-size: 3em;
     padding-top: 1em;
     padding-bottom: 1em;
-    // border: 1px dashed black;
   }
 
   .stats-area {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     background-color: const.$blue-2;
     padding: 2em 0 2em 0;
 
@@ -37,9 +39,45 @@
     }
   }
 
-  .buttons {
+  .problems {
     display: flex;
+    flex-shrink: 1;
     justify-content: center;
-    padding-top: 3em;
+    padding: 1em 0;
+    width: 100%;
+    background-color: const.$gray-1;
+
+    .pills {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 600px;
+
+      .pill {
+        font-size: 1.3em;
+        margin: 1em;
+        display: flex;
+        color: #fff;
+
+        .k {
+          background-color: const.$gray-5;
+          padding: 0.5em 0.6em;
+          border-radius: 0.2em 0 0 0.2em;
+        }
+
+        .v {
+          padding: 0.5em 0.6em;
+          border-radius: 0 0.2em 0.2em 0;
+        }
+
+        .v-green {
+          background-color: const.$g2-6;
+        }
+
+        .v-red {
+          background-color: const.$r1-6;
+        }
+      }
+    }
   }
 }

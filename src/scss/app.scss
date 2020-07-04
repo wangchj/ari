@@ -14,6 +14,7 @@ html, body {
   margin: 0;
   background-color: #fff;
   font-family: BalsamiqSans;
+  height: 50%;
 }
 
 @media (max-width: 500px) {
@@ -35,15 +36,4 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
-}
-
-input.abc {
-  /*border: 0;*/
-  /*outline: none;*/
-  /*caret-color: transparent;*/
-}
-
-input.abc:focus {
-  /*border: 0;*/
-  outline: none;
 }
