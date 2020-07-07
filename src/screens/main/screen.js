@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {OperationsEnum, Settings} from 'business/meta';
 import RadioButtons from 'widgets/radio-buttons';
 import Button from 'widgets/button';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faTwitter} from '@fortawesome/free-brands-svg-icons';
 import StyleSheet from 'scss/screens/main/screen';
 
 let Screen = props => {
@@ -38,6 +40,19 @@ let Screen = props => {
       <div id="finalize">
         <Button label="Start!" size="l" variant="dark"
           onClick={props.onStartClick}/>
+      </div>
+
+      <div className="space"></div>
+
+      <div className="footer">
+        <div className="content">
+          <div className="words">Give us feedback</div>
+          <div className="twitter">
+            <a href="https://twitter.com/intent/tweet?screen_name=AriMathApp&ref_src=twsrc%5Etfw">
+              <FontAwesomeIcon icon={faTwitter}/>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   )
