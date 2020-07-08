@@ -5,6 +5,7 @@ import RadioButtons from 'widgets/radio-buttons';
 import Button from 'widgets/button';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTwitter} from '@fortawesome/free-brands-svg-icons';
+import {faFacebook} from '@fortawesome/free-brands-svg-icons';
 import StyleSheet from 'scss/screens/main/screen';
 
 let Screen = props => {
@@ -48,8 +49,13 @@ let Screen = props => {
         <div className="content">
           <div className="words">Give us feedback</div>
           <div className="twitter">
-            <a href="https://twitter.com/intent/tweet?screen_name=AriMathApp&ref_src=twsrc%5Etfw">
+            <a target="_blank" href="https://twitter.com/intent/tweet?screen_name=AriMathApp&ref_src=twsrc%5Etfw">
               <FontAwesomeIcon icon={faTwitter}/>
+            </a>
+          </div>
+          <div className="fb">
+            <a target="_blank" href="https://www.facebook.com/Ari-Math-109135457534100/">
+              <FontAwesomeIcon icon={faFacebook}/>
             </a>
           </div>
         </div>
