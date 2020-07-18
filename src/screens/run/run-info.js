@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheckCircle, faTimesCircle} from '@fortawesome/free-solid-svg-icons';
-import Problem from 'business/problem';
+import Solver from 'business/solver';
 import StyleSheet from 'scss/screens/run/run-info';
 import CommonStyle from 'scss/common';
 
@@ -10,9 +10,9 @@ function RunInfo(props) {
   let problems = props.run.problems;
   let completedCount = problems ? problems.length : 0;
   let rightCount = problems ? problems.reduce(
-    (a, p) => Problem.isCorrect(p) ? a + 1 : a, 0) : 0;
+    (a, p) => Solver.isCorrect(p) ? a + 1 : a, 0) : 0;
   let wrongCount = problems ? problems.reduce(
-    (a, p) => Problem.isCorrect(p) ? a : a + 1, 0) : 0;
+    (a, p) => Solver.isCorrect(p) ? a : a + 1, 0) : 0;
 
   return (
     <div id="run-info">

@@ -1,6 +1,6 @@
 import React from 'react';
 import Result from './result';
-import Problem from 'business/problem'
+import Solver from 'business/solver'
 import StyleSheet from 'scss/screens/run/ver';
 
 /**
@@ -17,7 +17,7 @@ function getNumWidth(problem) {
     0
   );
   // Get the number of characters from the answer
-  let b = ('' + Problem.eval(problem)).length;
+  let b = ('' + Solver.eval(problem)).length;
   let m = Math.max(a, b);
   return 0.65 * m;
 }

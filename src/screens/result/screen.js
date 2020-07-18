@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Prob from 'business/problem';
+import Solver from 'business/solver';
 import Button from 'widgets/button';
 
 import ScreenStyle from 'scss/screens/result/screen';
@@ -8,8 +8,8 @@ import RunInfoStyle from 'scss/screens/run/run-info';
 
 function Pill(props) {
   let p = props.prob;
-  let r = Prob.isCorrect(p);
-  let a = Prob.eval(p);
+  let r = Solver.isCorrect(p);
+  let a = Solver.eval(p);
 
   return (
     <div className="pill">
@@ -24,7 +24,7 @@ function Pill(props) {
 function Screen(props) {
   let probs = props.run.problems;
   let total = probs.length;
-  let right = probs.reduce((a, v) => Prob.isCorrect(v) ? a + 1 : a, 0);
+  let right = probs.reduce((a, v) => Solver.isCorrect(v) ? a + 1 : a, 0);
 
   return (
     <div className="report-screen">
