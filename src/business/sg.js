@@ -27,7 +27,7 @@ class Sg {
 
         for (let i = 0; i < 3; i++) {
           b = randInt(1, a);
-          if (a !== b)
+          if (a - b > 1)
             break;
         }
 
