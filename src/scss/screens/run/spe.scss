@@ -1,0 +1,30 @@
+@use "scss/const.scss";
+
+.media-stripe {
+  padding: 2.5em 0 2.5em 0;
+  cursor: pointer;
+
+  .content {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .text {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+
+    .icon {
+      font-size: 5em;
+    }
+
+    .enabled {
+      color: rgba(0, 0, 0, 0.8);
+    }
+
+    .disabled {
+      color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}

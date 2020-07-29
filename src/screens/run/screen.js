@@ -9,7 +9,8 @@ function Content(props) {
   let settings = props.settings;
 
   if (run.problem) {
-    return <Problem problem={run.problem} settings={settings}/>
+    let key = run.problems ? run.problems.length + 1 : 0;
+    return <Problem key={key} problem={run.problem} settings={settings}/>
   }
   else if (run.problems) {
     return <ResultScreen/>

@@ -3,6 +3,7 @@ export const Format = {
   enum: [
     {id: 'STACK', label: 'Stack'},
     {id: 'SCORE', label: 'Score'},
+    {id: 'SPEECH', label: 'Speech'}
   ]
 };
 
