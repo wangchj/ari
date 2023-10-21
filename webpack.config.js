@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   module: {
@@ -12,24 +12,12 @@ module.exports = {
         }
       },
       {
-        test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader"
-          }
-        ]
-      },
-      {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          "file-loader"
-        ]
+        type: 'asset/resource'
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          "file-loader"
-        ]
+        type: 'asset/resource'
       },
       {
         test: /\.s[ac]ss$/i,
@@ -45,10 +33,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: "./src/index.html",
-      filename: "./index.html"
-    })
+    new HtmlWebpackPlugin()
   ],
   resolve: {
     modules: [

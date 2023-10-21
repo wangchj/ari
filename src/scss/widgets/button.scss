@@ -47,7 +47,7 @@ $btn-sizes: ("s": 0.85rem, "m": 1rem, "l": 1.2rem);
 
 @each $name, $font-size in $btn-sizes {
 
-  $size-em: ($font-size / 1rem) * 1em;
+  $size-em: calc(($font-size / 1rem) * 1em);
 
   .btn-#{$name} {
     font-size: $font-size;
